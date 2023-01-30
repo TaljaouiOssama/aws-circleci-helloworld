@@ -7,7 +7,7 @@ Resources:
       SecurityGroups:
         - !Ref InstanceSecurityGroup      
       KeyName: webserver
-      ImageId: 'ami-0620aa8714211d0af' 
+      ImageId: ami-07ebfd5b3428b6f4d 
       InstanceType: t3.micro
   InstanceSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
