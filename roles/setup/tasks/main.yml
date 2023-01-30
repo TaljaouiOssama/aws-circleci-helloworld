@@ -11,35 +11,12 @@
   become: yes
   apt:
     autoremove: yes
-- name: "Add nodejs apt key"
-  apt_key:
-    url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
-    state: present
-
-- name: "Add nodejs 10.x ppa for apt repo"
-  apt_repository:
-    repo: deb https://deb.nodesource.com/node_10.x bionic main
-    update_cache: yes
-- name: "Install nodejs"
-  apt:
-    update_cache: yes
-    name: nodejs
-    state: present
-
 - name: "install dependencies."
   become: yes
   apt:
-    name: ["npm"]
+    name: ["nodejs", "npm","pm2"]
     state: latest
     update_cache: yes
-    
-- name: "install pm2"
-  become: yes
-  npm:
-    name: pm2
-    global: yes
-    production: yes
-    state: present
     
 - name: Creates directory
   file:
